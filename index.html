@@ -8,8 +8,7 @@
 </head>
 <body>
 <script>
-// Get user input for choice in game 
-// const userChoice = prompt("(R)ock, (P)aper, or (S)cissors?");
+
 
 
 // Get cpu's choice to compare with user
@@ -23,33 +22,33 @@ return choices[cpuChoice];
 function playRound(playerSelection, computerSelection) {
     // If player chooses Rock
     if ( (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "r") && computerSelection == "Scissors" ) {
-        return console.log("You Win! Rock beats Scissors!");
+        return "You Win! Rock beats Scissors!";
     }
     else if ((playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "r") && computerSelection == "Paper" ) {
-        return console.log("You Lose! Paper beats Rock!")
+        return "You Lose! Paper beats Rock!";
     }
 
    
    // If Player chooses Paper
     else if ( (playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "p") && computerSelection == "Rock" ) {
-        return console.log("You Win! Paper beats Rock!");
+        return "You Win! Paper beats Rock!";
     }
     else if ((playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "p") && computerSelection == "Scissors" ) {
-        return console.log("You Lose! Scissors beats Paper!")
+        return "You Lose! Scissors beats Paper!";
     }
 
 
    // If player chooses Scissors
     if ( (playerSelection.toLowerCase() == "scissors" || playerSelection.toLowerCase() == "s") && computerSelection == "Paper" ) {
-        return console.log("You Win! Scissors beats Paper!");
+        return "You Win! Scissors beats Paper!";
     }
     else if ((playerSelection.toLowerCase() == "scissors" || playerSelection.toLowerCase() == "s") && computerSelection == "Rock" ) {
-        return console.log("You Lose! Rock beats Scissors!")
+        return "You Lose! Rock beats Scissors!";
     }
 
     // If game is a tie
     else if (playerSelection.toLowerCase()[0] == computerSelection.toLowerCase()[0] ) {
-        return console.log("You Tied")
+        return "You Tied"
     }
 
 }
@@ -58,12 +57,15 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
     for (let i = 0; i < 5; i++) {
+        
+        // Get user input for choice in game 
+        // const userChoice = prompt("(R)ock, (P)aper, or (S)cissors?");
+        const userChoice = prompt("(R)ock, (P)aper, or (S)cissors?")
         const computerChoice = getComputerChoice();
         console.log(playRound(userChoice, computerChoice));
     }
 }
 
-const userChoice = "Scissors";
 console.log(game());
 
 // Decide whos choice wins and reward point to winner
