@@ -13,8 +13,13 @@ let userChoice = prompt("(R)ock, (P)aper, or (S)cissors?");
 
 // Get cpu's choice to compare with user
 // Get random number from 1-3
-cpuChoice = Math.floor(Math.random() * 3) + 1;
-console.log(cpuChoice);
+function getComputerChoice() {
+cpuChoice = Math.floor(Math.random() * 3);
+choices = ["Rock", "Paper", "Scissors"];
+return choices[cpuChoice];
+};
+
+console.log(getComputerChoice());
 
 // Decide whos choice wins and reward point to winner
 // If tie no points awarded
