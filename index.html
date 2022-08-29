@@ -21,6 +21,7 @@ return choices[cpuChoice];
 };
 
 function playRound(playerSelection, computerSelection) {
+    // If player chooses Rock
     if ( (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "r") && computerSelection == "Scissors" ) {
         return console.log("You Win! Rock beats Scissors!");
     }
@@ -28,9 +29,29 @@ function playRound(playerSelection, computerSelection) {
         return console.log("You Lose! Paper beats Rock!")
     }
 
+   
+   // If Player chooses Paper
+    else if ( (playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "p") && computerSelection == "Rock" ) {
+        return console.log("You Win! Paper beats Rock!");
+    }
+    else if ((playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "p") && computerSelection == "Scissors" ) {
+        return console.log("You Lose! Scissors beats Paper!")
+    }
+
+
+   // If player chooses Scissors
+    if ( (playerSelection.toLowerCase() == "scissors" || playerSelection.toLowerCase() == "s") && computerSelection == "Paper" ) {
+        return console.log("You Win! Scissors beats Paper!");
+    }
+    else if ((playerSelection.toLowerCase() == "scissors" || playerSelection.toLowerCase() == "s") && computerSelection == "Rock" ) {
+        return console.log("You Lose! Rock beats Scissors!")
+    }
+
+    // If game is a tie
     else if (playerSelection.toLowerCase()[0] == computerSelection.toLowerCase()[0] ) {
         return console.log("You Tied")
     }
+
 }
 
 const userChoice = "Rock";
