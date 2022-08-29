@@ -54,13 +54,20 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-const userChoice = "Rock";
-const computerChoice = getComputerChoice();
-console.log(playRound(userChoice, computerChoice));
+// Have a total of 5 rounds
+function game() {
+
+    for (let i = 0; i < 5; i++) {
+        const computerChoice = getComputerChoice();
+        console.log(playRound(userChoice, computerChoice));
+    }
+}
+
+const userChoice = "Scissors";
+console.log(game());
 
 // Decide whos choice wins and reward point to winner
-// If tie no points awarded
-// Have a total of 5 rounds
+
 // Who ever gets best out of 5 is winner
 </script>
 </body>
