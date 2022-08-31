@@ -6,36 +6,36 @@
 }
 
 body {
-     background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 50%); 
-     display: flex;
-     flex-direction: column;
+    background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 50%);
+    display: flex;
+    flex-direction: column;
 }
 
 
 /* Header content */
 .header-container {
     color: white;
-    background-color:black; 
+    background-color: black;
     border: 4px solid black;
     height: 100px;
     padding: 8px;
     font-size: 1.5rem;
- 
+
 }
 
-.head-menu { 
+.head-menu {
     width: 80%;
     margin: 26px auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;  
-   
+    justify-content: space-between;
+
 }
 
 .links {
     display: flex;
     gap: 46px;
-   
+
 }
 
 a {
@@ -57,29 +57,28 @@ a:hover {
     justify-content: space-evenly;
     margin-top: 36px;
     gap: 10%;
-    flex-shrink: 0;
 }
 
-.player-side, 
+.player-side,
 .cpu-side {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    flex-shrink: 0;
 
 }
-.player-choice-pic, 
+
+.player-choice-pic,
 .cpu-choice-pic {
     height: 200px;
     width: 200px;
     border: 2px solid black;
-    
+
 }
 
 .game-results {
     height: 300px;
-    width: 25%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,11 +86,12 @@ a:hover {
     gap: 1rem;
     border: 2px solid black;
 
-    
+
 }
 
 .results-log {
-    margin-bottom: 50%;
+    font-size: 1.5rem;
+    margin-bottom: 35%;
     display: flex;
     gap: 60px;
 }
@@ -115,7 +115,7 @@ button {
 button:hover {
     cursor: pointer;
     background-color: rgba(117, 116, 116, 0.281);
-    
+
 }
 
 /* End of game content */
