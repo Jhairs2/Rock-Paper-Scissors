@@ -68,8 +68,8 @@ a:hover {
     flex-shrink: 0;
 
 }
-.player-choice, 
-.cpu-choice {
+.player-choice-pic, 
+.cpu-choice-pic {
     height: 200px;
     width: 200px;
     border: 2px solid black;
