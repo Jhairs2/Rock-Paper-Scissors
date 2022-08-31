@@ -1,4 +1,4 @@
-
+let playerChoice = "" ;
 // Create variables to change Player image
 const playerPic = document.querySelector(".player-choice-pic");
 const cpuPic = document.querySelector(".cpu-choice-pic");
@@ -8,34 +8,11 @@ const btn = document.querySelectorAll("button");
 playerPic.src = "./images/rock.jpg";
 cpuPic.src = "./images/random.svg";
 
-// btn will change player image on click
-function playerChoices() {
-    Array.from(btn).forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      console.log(btn.textContent);
-      let playerChoice = "" ;
-      
-    if (btn.textContent == "Rock") {
-        playerPic.src = "./images/rock.jpg"
-        return playerChoice = "Rock";
-    } 
-    else if (btn.textContent == "Paper") {
-        playerPic.src = "./images/paper.svg";
-        return playerChoice = "Paper";
-    }
-    else if (btn.textContent == "Scissors") {
-        playerPic.src = "./images/scissors.svg";
-        return playerChoice = "Scissors"
-    };
-
-    })
-})
-}
 
 // Get cpu's choice to compare with user
 // Get random number from 1-3
-
-function changeCpuPic() { 
+// cpu image will change with choice
+function changeCpuChoice() { 
 
     let cpuChoice = Math.floor(Math.random() * 3);
     let choice = ["Rock", "Paper", "Scissors"];
@@ -55,52 +32,81 @@ function changeCpuPic() {
     }
 }
 
-playerChoices();
+// btn will change player image on click
+    Array.from(btn).forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      console.log(btn.textContent);
+      ;  
+      
+    if (btn.textContent == "Rock") {
+        playerPic.src = "./images/rock.jpg"
+        playerChoice = "Rock";
+        return game();
+    } 
+    else if (btn.textContent == "Paper") {
+        playerPic.src = "./images/paper.svg";
+         playerChoice = "Paper";
+         return game();
+    }
+    else if (btn.textContent == "Scissors") {
+        playerPic.src = "./images/scissors.svg";
+         playerChoice = "Scissors";
+         return game();
+    };
+
+    })
+    
+    ;
+})
+
+
+// Round of game will be simulated when user selects choice
+function playRound(playerSelection, computerSelection) {
+    // If player chooses Rock
+    if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        return "You Win! Rock beats Scissors!";
+    }
+    else if (playerSelection == "Rock" && computerSelection == "Paper") {
+        return "You Lose! Paper beats Rock!";
+    }
+
+    // If Player chooses Paper
+    else if (playerSelection == "Paper" && computerSelection == "Rock") {
+        return "You Win! Paper beats Rock!";
+    }
+    else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+        return "You Lose! Scissors beats Paper!";
+    }
+
+
+    // If player chooses Scissors
+    if (playerSelection == "Scissors" && computerSelection == "Paper") {
+        return "You Win! Scissors beats Paper!";
+    }
+    else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+        return "You Lose! Rock beats Scissors!";
+    }
+
+    // If game is a tie
+    else if (playerSelection == computerSelection) {
+        return "You Tied"
+    }
+
+}
+
+// Game will be simulated
+function game() {
+    return console.log(playRound(playerChoice, changeCpuChoice()));
+}
+
+
 
 /* let playerScore = 0;
 let cpuScore = 0;
 
 
 
-function playRound(playerSelection, computerSelection) {
-    // If player chooses Rock
-    if ((playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "r") && computerSelection == "Scissors") {
-        playerScore++;
-        return "You Win! Rock beats Scissors!";
-    }
-    else if ((playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "r") && computerSelection == "Paper") {
-        cpuScore++;
-        return "You Lose! Paper beats Rock!";
-    }
 
-
-    // If Player chooses Paper
-    else if ((playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "p") && computerSelection == "Rock") {
-        playerScore++;
-        return "You Win! Paper beats Rock!";
-    }
-    else if ((playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "p") && computerSelection == "Scissors") {
-        cpuScore++;
-        return "You Lose! Scissors beats Paper!";
-    }
-
-
-    // If player chooses Scissors
-    if ((playerSelection.toLowerCase() == "scissors" || playerSelection.toLowerCase() == "s") && computerSelection == "Paper") {
-        playerScore++;
-        return "You Win! Scissors beats Paper!";
-    }
-    else if ((playerSelection.toLowerCase() == "scissors" || playerSelection.toLowerCase() == "s") && computerSelection == "Rock") {
-        cpuScore++;
-        return "You Lose! Rock beats Scissors!";
-    }
-
-    // If game is a tie
-    else if (playerSelection.toLowerCase()[0] == computerSelection.toLowerCase()[0]) {
-        return "You Tied"
-    }
-
-}
 
 // Decide whos choice wins and reward point to winner
 // Who ever gets best out of 5 is winner
@@ -113,18 +119,6 @@ function scoreKeep() {
     }
 }
 // Have a total of 5 rounds
-function game() {
 
-    for (let i = 0; i < 5; i++) {
-
-        // Get user input for choice in game 
-        // const userChoice = prompt("(R)ock, (P)aper, or (S)cissors?");
-        const userChoice = prompt("(R)ock, (P)aper, or (S)cissors?");
-        const computerChoice = getComputerChoice();
-        console.log(playRound(userChoice, computerChoice));
-    }
-    return scoreKeep();
-
-}
 
 // console.log(game()); */
