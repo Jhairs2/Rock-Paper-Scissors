@@ -9,7 +9,6 @@ const winnerMessage = document.querySelector(".final-winner");
 let playerScore = 0;
 let cpuScore = 0;
 let playerChoice = "";
-let winnerVerified = false
 
 
 // Set pictures to default
@@ -40,114 +39,97 @@ function changeCpuChoice() {
     }
 }
 
-
-// Round of game will be simulated when user selects choice
-function playRound(playerSelection, computerSelection) {
-    // If player chooses Rock
-    if (playerSelection == "Rock" && computerSelection == "Scissors") {
-        console.log(playerScore)
-        playerScore++;
-        player.textContent = playerScore;
-        return "You Win! Rock beats Scissors!";
-    }
-    else if (playerSelection == "Rock" && computerSelection == "Paper") {
-        console.log(playerScore)
-        cpuScore++;
-        cpu.textContent = cpuScore;
-        return "You Lose! Paper beats Rock!";
-    }
-
-    // If Player chooses Paper
-    else if (playerSelection == "Paper" && computerSelection == "Rock") { 
-        
-        playerScore++;
-        player.textContent = playerScore;
-        return "You Win! Paper beats Rock!";
-    }
-    else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-        cpuScore++;
-        cpu.textContent = cpuScore;
-        return "You Lose! Scissors beats Paper!";
-    }
-
-
-    // If player chooses Scissors
-    if (playerSelection == "Scissors" && computerSelection == "Paper") {
-        playerScore++;
-        player.textContent = playerScore;
-        return "You Win! Scissors beats Paper!";
-    }
-    else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-        cpuScore++;
-        cpu.textContent = cpuScore;
-        return "You Lose! Rock beats Scissors!";
-    }
-
-    // If game is a tie
-    else if (playerSelection == computerSelection) {
-        return "You Tied"
-    }
-
+function disableButtons() {
+    btn.forEach(elem => {
+        elem.disabled = true
+    })
 }
 
-
-// Decide whos choice wins and reward point to winner
 // Who ever gets 5 points is winner
 function scoreKeep() {
-    if (playerScore == 5) { 
+    if (playerScore == 5) {
+        disableButtons(); 
         return winnerMessage.textContent = `You won! ${playerScore} - ${cpuScore}`;
     }
     else if (cpuScore == 5) {
+        disableButtons(); 
         return winnerMessage.textContent = `Cpu wins! ${playerScore} - ${cpuScore}`;
     }
 }
 
 
-function game() {
-    if(playerScore == 5 || cpuScore == 5) {
-        scoreKeep()
-    } else {
-    return results.textContent = playRound(playerChoice, changeCpuChoice()) 
+// Decide whos choice wins and reward point to winner
+// Round of game will be simulated when user selects choice
+function playRound(playerSelection, computerSelection) {
+    // If player chooses Rock
+    if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        playerScore += 1;
+        player.textContent = playerScore;
+        results.textContent = "You Win! Rock beats Scissors!";
     }
+    else if (playerSelection == "Rock" && computerSelection == "Paper") {
+        cpuScore += 1;
+        cpu.textContent = cpuScore;
+        results.textContent = "You Lose! Paper beats Rock!";
+    }
+
+    // If Player chooses Paper
+    else if (playerSelection == "Paper" && computerSelection == "Rock") { 
+        
+        playerScore += 1;
+        player.textContent = playerScore;
+        results.textContent = "You Win! Paper beats Rock!";
+    }
+    else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+        cpuScore += 1;
+        cpu.textContent = cpuScore;
+        results.textContent = "You Lose! Scissors beats Paper!";
+    }
+
+
+    // If player chooses Scissors
+    if (playerSelection == "Scissors" && computerSelection == "Paper") {
+        playerScore += 1;
+        player.textContent = playerScore;
+        results.textContent = "You Win! Scissors beats Paper!";
+    }
+    else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+        cpuScore += 1;
+        cpu.textContent = cpuScore;
+        results.textContent = "You Lose! Rock beats Scissors!";
+    }
+
+    // If game is a tie
+    else if (playerSelection == computerSelection) {
+        results.textContent = "You Tied"
+    }
+
+    scoreKeep();
+        
 }
 
 
 // btn will change player image on click
-Array.from(btn).forEach(function (btn) {
-    btn.addEventListener('click', function () {
+ btn.forEach(button => {
+    button.addEventListener('click', function () {
         
         
-        if (btn.textContent == "Rock") {
+        if (button.textContent == "Rock") {
             playerPic.src = "./images/rock.jpg"
             playerChoice = "Rock";
-            return game();
+            return playRound(playerChoice, changeCpuChoice());
         }
-        else if (btn.textContent == "Paper") {
+        else if (button.textContent == "Paper") {
             playerPic.src = "./images/paper.svg";
             playerChoice = "Paper";
-            return game();
+            return playRound(playerChoice, changeCpuChoice());
         }
-        else if (btn.textContent == "Scissors") {
+        else if (button.textContent == "Scissors") {
             playerPic.src = "./images/scissors.svg";
             playerChoice = "Scissors";
-            return game();
+            return playRound(playerChoice, changeCpuChoice());
         };
 
     });
      
 })
-
-// Game will be simulated
-    
-
-
-
-
-
-
-
-
-
-
-
-// console.log(game()); */
