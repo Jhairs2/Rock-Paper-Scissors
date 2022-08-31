@@ -1,7 +1,3 @@
-let playerChoice = "";
-
-
-
 // Create variables to change Player image
 const playerPic = document.querySelector(".player-choice-pic");
 const cpuPic = document.querySelector(".cpu-choice-pic");
@@ -9,8 +5,12 @@ const btn = document.querySelectorAll("button");
 const results = document.querySelector('.result-message');
 const player = document.querySelector(".player-score");
 const cpu = document.querySelector(".cpu-score");
+const winnerMessage = document.querySelector(".final-winner");
 let playerScore = 0;
 let cpuScore = 0;
+let playerChoice = "";
+let winnerVerified = false
+
 
 // Set pictures to default
 playerPic.src = "./images/rock.jpg";
@@ -40,50 +40,26 @@ function changeCpuChoice() {
     }
 }
 
-// btn will change player image on click
-Array.from(btn).forEach(function (btn) {
-    btn.addEventListener('click', function () {
-        console.log(btn.textContent);
-        ;
-
-        if (btn.textContent == "Rock") {
-            playerPic.src = "./images/rock.jpg"
-            playerChoice = "Rock";
-            return game();
-        }
-        else if (btn.textContent == "Paper") {
-            playerPic.src = "./images/paper.svg";
-            playerChoice = "Paper";
-            return game();
-        }
-        else if (btn.textContent == "Scissors") {
-            playerPic.src = "./images/scissors.svg";
-            playerChoice = "Scissors";
-            return game();
-        };
-
-    })
-
-        ;
-})
-
 
 // Round of game will be simulated when user selects choice
 function playRound(playerSelection, computerSelection) {
     // If player chooses Rock
     if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        console.log(playerScore)
         playerScore++;
         player.textContent = playerScore;
         return "You Win! Rock beats Scissors!";
     }
     else if (playerSelection == "Rock" && computerSelection == "Paper") {
+        console.log(playerScore)
         cpuScore++;
         cpu.textContent = cpuScore;
         return "You Lose! Paper beats Rock!";
     }
 
     // If Player chooses Paper
-    else if (playerSelection == "Paper" && computerSelection == "Rock") {
+    else if (playerSelection == "Paper" && computerSelection == "Rock") { 
+        
         playerScore++;
         player.textContent = playerScore;
         return "You Win! Paper beats Rock!";
@@ -114,28 +90,64 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-// Game will be simulated
-function game() {
-    ;
-    return results.textContent = playRound(playerChoice, changeCpuChoice())
-}
-
-
-
-
-
 
 // Decide whos choice wins and reward point to winner
-// Who ever gets best out of 5 is winner
+// Who ever gets 5 points is winner
 function scoreKeep() {
-    if (playerScore > cpuScore) {
-        return `You won! ${playerScore} - ${cpuScore}`;
+    if (playerScore == 5) { 
+        return winnerMessage.textContent = `You won! ${playerScore} - ${cpuScore}`;
     }
-    else {
-        return `Cpu wins! ${playerScore} - ${cpuScore}`;
+    else if (cpuScore == 5) {
+        return winnerMessage.textContent = `Cpu wins! ${playerScore} - ${cpuScore}`;
     }
 }
-// Have a total of 5 rounds
+
+
+function game() {
+    if(playerScore == 5 || cpuScore == 5) {
+        scoreKeep()
+    } else {
+    return results.textContent = playRound(playerChoice, changeCpuChoice()) 
+    }
+}
+
+
+// btn will change player image on click
+Array.from(btn).forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        
+        
+        if (btn.textContent == "Rock") {
+            playerPic.src = "./images/rock.jpg"
+            playerChoice = "Rock";
+            return game();
+        }
+        else if (btn.textContent == "Paper") {
+            playerPic.src = "./images/paper.svg";
+            playerChoice = "Paper";
+            return game();
+        }
+        else if (btn.textContent == "Scissors") {
+            playerPic.src = "./images/scissors.svg";
+            playerChoice = "Scissors";
+            return game();
+        };
+
+    });
+     
+})
+
+// Game will be simulated
+    
+
+
+
+
+
+
+
+
+
 
 
 // console.log(game()); */
