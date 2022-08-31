@@ -126,6 +126,11 @@ button {
 
 }
 
+.reset-button {
+    font-size: 1.2rem;
+    width: 100px;
+}
+
 button:hover {
     cursor: pointer;
     background-color: rgba(117, 116, 116, 0.281);

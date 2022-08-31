@@ -26,10 +26,11 @@
             <h2>Player</h2>
             <img class="player-choice-pic" src="./images/rock.svg">
             <div class="button-choice">
-                <button>Rock</button>
-                <button>Paper</button>
-                <button>Scissors</button>
+                <button class="choice">Rock</button>
+                <button class="choice">Paper</button>
+                <button class="choice">Scissors</button>
             </div>
+            <div><button class="reset-button">Reset</button></div>
         </div>
         <div class="game-results">
             <div class="results-title">
@@ -37,13 +38,25 @@
             </div>
             <div class="results-log">
                 <div class="scoring">
-                    <div><p class="player-score">0</p></div>
-                    <div><p>-</p></div>
-                    <div><p>Game Score</p></div>
-                    <div><p>-</p></div>
-                    <div><p class="cpu-score">0</p></div>
+                    <div>
+                        <p class="player-score">0</p>
+                    </div>
+                    <div>
+                        <p>-</p>
+                    </div>
+                    <div>
+                        <p>Game Score</p>
+                    </div>
+                    <div>
+                        <p>-</p>
+                    </div>
+                    <div>
+                        <p class="cpu-score">0</p>
+                    </div>
                 </div>
-                <div class="final-winner"><p></p></div>
+                <div class="final-winner">
+                    <p></p>
+                </div>
                 <p class="result-message"></p>
             </div>
         </div>
@@ -52,7 +65,6 @@
             <img class="cpu-choice-pic">
         </div>
     </div>
-
     <footer class="footer-container">
         <div class="footer-info">
             <p>Copyright © 2022 Justin Hairston</p>

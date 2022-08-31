@@ -1,11 +1,16 @@
 // Create variables to change Player image
 const playerPic = document.querySelector(".player-choice-pic");
 const cpuPic = document.querySelector(".cpu-choice-pic");
-const btn = document.querySelectorAll("button");
-const results = document.querySelector('.result-message');
+
+// Create variables store different elements
+const btn = document.querySelectorAll(".choice");
+const results = document.querySelector(".result-message");
 const player = document.querySelector(".player-score");
 const cpu = document.querySelector(".cpu-score");
 const winnerMessage = document.querySelector(".final-winner");
+const resetBtn = document.querySelector(".reset-button");
+
+// Variables for scoring and player choices
 let playerScore = 0;
 let cpuScore = 0;
 let playerChoice = "";
@@ -39,11 +44,35 @@ function changeCpuChoice() {
     }
 }
 
+// Resets game
+function resetButton() {
+ resetBtn.addEventListener("click", function() {
+   // Reset Everything back to start
+    playerScore = 0;
+   cpuScore = 0;
+   player.textContent = 0;
+   cpu.textContent = 0;
+   winnerMessage.textContent = "";
+   results.textContent = "";
+
+   // Enable buttons back 
+   btn.forEach(elem => {
+    if(btn.textContent != "Reset") {
+    elem.disabled = false;
+    }
+})
+ })
+
+}
+
+// will disable buttons after winner is declared
 function disableButtons() {
     btn.forEach(elem => {
+        if(btn.textContent != "Reset") {
         elem.disabled = true
+        }
     })
-}
+} 
 
 // Who ever gets 5 points is winner
 function scoreKeep() {
@@ -133,3 +162,5 @@ function playRound(playerSelection, computerSelection) {
     });
      
 })
+
+resetButton();
