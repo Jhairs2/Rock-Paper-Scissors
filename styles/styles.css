@@ -6,9 +6,9 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 50%);
+     background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 50%); 
+     display: flex;
+     flex-direction: column;
 }
 
 
@@ -52,7 +52,7 @@ a:hover {
 /* Game Content */
 
 .game-container {
-    height: 350px;
+    height: 550px;
     display: flex;
     justify-content: space-evenly;
     margin-top: 36px;
@@ -111,3 +111,23 @@ button:hover {
     cursor: pointer;
     background-color: rgba(117, 116, 116, 0.281);
 }
+
+/* End of game content */
+
+/* Footer content */
+
+.footer-container {
+    background-color: black;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-info {
+    color: white;
+    display: flex;
+    gap: 50px;
+}
+
+/* End of footer content */
