@@ -46,42 +46,42 @@ function changeCpuChoice() {
 
 // Resets game
 function resetButton() {
- resetBtn.addEventListener("click", function() {
-   // Reset Everything back to start
-    playerScore = 0;
-   cpuScore = 0;
-   player.textContent = 0;
-   cpu.textContent = 0;
-   winnerMessage.textContent = "";
-   results.textContent = "";
+    resetBtn.addEventListener("click", function () {
+        // Reset Everything back to start
+        playerScore = 0;
+        cpuScore = 0;
+        player.textContent = 0;
+        cpu.textContent = 0;
+        winnerMessage.textContent = "";
+        results.textContent = "";
 
-   // Enable buttons back 
-   btn.forEach(elem => {
-    if(btn.textContent != "Reset") {
-    elem.disabled = false;
-    }
-})
- })
+        // Enable buttons back 
+        btn.forEach(elem => {
+            if (btn.textContent != "Reset") {
+                elem.disabled = false;
+            }
+        })
+    })
 
 }
 
 // will disable buttons after winner is declared
 function disableButtons() {
     btn.forEach(elem => {
-        if(btn.textContent != "Reset") {
-        elem.disabled = true
+        if (btn.textContent != "Reset") {
+            elem.disabled = true
         }
     })
-} 
+}
 
 // Who ever gets 5 points is winner
 function scoreKeep() {
     if (playerScore == 5) {
-        disableButtons(); 
+        disableButtons();
         return winnerMessage.textContent = `You won! ${playerScore} - ${cpuScore}`;
     }
     else if (cpuScore == 5) {
-        disableButtons(); 
+        disableButtons();
         return winnerMessage.textContent = `Cpu wins! ${playerScore} - ${cpuScore}`;
     }
 }
@@ -103,8 +103,8 @@ function playRound(playerSelection, computerSelection) {
     }
 
     // If Player chooses Paper
-    else if (playerSelection == "Paper" && computerSelection == "Rock") { 
-        
+    else if (playerSelection == "Paper" && computerSelection == "Rock") {
+
         playerScore += 1;
         player.textContent = playerScore;
         results.textContent = "You Win! Paper beats Rock!";
@@ -134,15 +134,15 @@ function playRound(playerSelection, computerSelection) {
     }
 
     scoreKeep();
-        
+
 }
 
 
 // btn will change player image on click
- btn.forEach(button => {
+btn.forEach(button => {
     button.addEventListener('click', function () {
-        
-        
+
+
         if (button.textContent == "Rock") {
             playerPic.src = "./images/rock.jpg"
             playerChoice = "Rock";
@@ -160,7 +160,7 @@ function playRound(playerSelection, computerSelection) {
         };
 
     });
-     
+
 })
 
 resetButton();
