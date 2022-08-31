@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+}
+
+.header-container {
+    color: white;
+    background-color:black; 
+    border: 4px solid black;
+    height: 100px;
+    padding: 8px;
+    font-size: 1.5rem;
+    
+    
+}
+
+.head-menu { 
+    width: 80%;
+    margin: 26px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.links {
+    display: flex;
+    gap: 42px;
+   
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
