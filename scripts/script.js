@@ -1,13 +1,66 @@
-let playerScore = 0;
-let cpuScore = 0;
+
+// Create variables to change Player image
+const playerPic = document.querySelector(".player-choice-pic");
+const cpuPic = document.querySelector(".cpu-choice-pic");
+const btn = document.querySelectorAll("button");
+
+// Set pictures to default
+playerPic.src = "./images/rock.jpg";
+cpuPic.src = "./images/random.svg";
+
+// btn will change player image on click
+function playerChoices() {
+    Array.from(btn).forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      console.log(btn.textContent);
+      let playerChoice = "" ;
+      
+    if (btn.textContent == "Rock") {
+        playerPic.src = "./images/rock.jpg"
+        return playerChoice = "Rock";
+    } 
+    else if (btn.textContent == "Paper") {
+        playerPic.src = "./images/paper.svg";
+        return playerChoice = "Paper";
+    }
+    else if (btn.textContent == "Scissors") {
+        playerPic.src = "./images/scissors.svg";
+        return playerChoice = "Scissors"
+    };
+
+    })
+})
+}
 
 // Get cpu's choice to compare with user
 // Get random number from 1-3
-function getComputerChoice() {
-    cpuChoice = Math.floor(Math.random() * 3);
-    choices = ["Rock", "Paper", "Scissors"];
-    return choices[cpuChoice];
-};
+
+function changeCpuPic() { 
+
+    let cpuChoice = Math.floor(Math.random() * 3);
+    let choice = ["Rock", "Paper", "Scissors"];
+
+    if (choice[cpuChoice] == "Rock") {
+        cpuPic.src = "./images/rock.jpg";
+        return choice = "Rock";
+    } 
+    else if (choice[cpuChoice] == "Paper") {
+        cpuPic.src = "./images/paper.svg";
+        return choice = "Paper";
+        
+    }
+    else if (choice[cpuChoice] == "Scissors") {
+        cpuPic.src = "./images/scissors.svg";
+        return choice = "Scissors";      
+    }
+}
+
+playerChoices();
+
+/* let playerScore = 0;
+let cpuScore = 0;
+
+
 
 function playRound(playerSelection, computerSelection) {
     // If player chooses Rock
@@ -74,4 +127,4 @@ function game() {
 
 }
 
-// console.log(game());
+// console.log(game()); */
