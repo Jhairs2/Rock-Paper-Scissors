@@ -91,4 +91,23 @@ a:hover {
     gap: 60px;
 }
 
+.button-choice {
+    display: flex;
+    gap: 26px;
+}
 
+button {
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    border: 2px solid white;
+    text-align: center;
+    height: 50px;
+    width: 55px;
+
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(117, 116, 116, 0.281);
+}
