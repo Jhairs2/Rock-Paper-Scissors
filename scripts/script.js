@@ -18,7 +18,7 @@ cpuPic.src = "./images/random.svg";
 
 
 // Get cpu's choice to compare with user
-// Get random number from 1-3
+// Get random number from 0-2
 // cpu image will change with choice
 function changeCpuChoice() {
 
