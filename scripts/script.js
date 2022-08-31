@@ -3,6 +3,7 @@ let playerChoice = "" ;
 const playerPic = document.querySelector(".player-choice-pic");
 const cpuPic = document.querySelector(".cpu-choice-pic");
 const btn = document.querySelectorAll("button");
+const results = document.querySelector('.result-message');
 
 // Set pictures to default
 playerPic.src = "./images/rock.jpg";
@@ -95,8 +96,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Game will be simulated
-function game() {
-    return console.log(playRound(playerChoice, changeCpuChoice()));
+function game() {;
+    return results.textContent = playRound(playerChoice, changeCpuChoice())
 }
 
 
