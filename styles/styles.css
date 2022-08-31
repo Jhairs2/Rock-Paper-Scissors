@@ -23,21 +23,26 @@ body {
 }
 
 .head-menu { 
+    
     width: 80%;
     margin: 26px auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;  
    
 }
 
 .links {
     display: flex;
-    gap: 42px;
+    gap: 46px;
    
 }
 
 a {
     color: white;
     text-decoration: none;
+}
+
+a:hover {
+    color: orange;
 }
