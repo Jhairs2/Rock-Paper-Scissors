@@ -52,9 +52,27 @@ a:hover {
 /* Game Content */
 
 .game-container {
-    height: 100px;
+    height: 350px;
     display: flex;
     justify-content: space-evenly;
     margin-top: 36px;
     gap: 10%;
 }
+
+.player-side, 
+.cpu-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+}
+.player-choice, 
+.cpu-choice {
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    
+}
+
+
