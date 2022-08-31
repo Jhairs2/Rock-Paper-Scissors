@@ -8,9 +8,11 @@
 body {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+    background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 50%);
 }
 
+
+/* Header content */
 .header-container {
     color: white;
     background-color:black; 
@@ -18,12 +20,10 @@ body {
     height: 100px;
     padding: 8px;
     font-size: 1.5rem;
-    
-    
+ 
 }
 
 .head-menu { 
-    
     width: 80%;
     margin: 26px auto;
     display: flex;
@@ -45,4 +45,16 @@ a {
 
 a:hover {
     color: orange;
+}
+
+/* End of Header Content */
+
+/* Game Content */
+
+.game-container {
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 36px;
+    gap: 10%;
 }
