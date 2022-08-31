@@ -75,4 +75,19 @@ a:hover {
     
 }
 
+.game-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    
+}
+
+.results-log {
+    margin-bottom: 55%;
+    display: flex;
+    gap: 60px;
+}
+
 
