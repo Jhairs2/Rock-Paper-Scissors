@@ -57,7 +57,7 @@ function resetButton() {
 
         // Enable buttons back 
         btn.forEach(elem => {
-                elem.addEventListener('click', addChoice);
+            elem.addEventListener('click', addChoice);
         })
     })
 
@@ -144,23 +144,23 @@ btn.forEach(button => {
 
 function addChoice() {
 
-        if (this == btn[0]) {
-            playerPic.src = "./images/armor.png"
-            playerChoice = "Armor";
-            return playRound(playerChoice, changeCpuChoice());
-        }
-        else if (this == btn[1]) {
-            playerPic.src = "./images/shuriken.png";
-            playerChoice = "Shuriken";
-            return playRound(playerChoice, changeCpuChoice());
-        }
-        else if (this == btn[2]) {
-            playerPic.src = "./images/katana.png";
-            playerChoice = "Katana";
-            return playRound(playerChoice, changeCpuChoice());
-        };
-
+    if (this == btn[0]) {
+        playerPic.src = "./images/armor.png"
+        playerChoice = "Armor";
+        return playRound(playerChoice, changeCpuChoice());
+    }
+    else if (this == btn[1]) {
+        playerPic.src = "./images/shuriken.png";
+        playerChoice = "Shuriken";
+        return playRound(playerChoice, changeCpuChoice());
+    }
+    else if (this == btn[2]) {
+        playerPic.src = "./images/katana.png";
+        playerChoice = "Katana";
+        return playRound(playerChoice, changeCpuChoice());
     };
+
+};
 
 
 resetButton();
