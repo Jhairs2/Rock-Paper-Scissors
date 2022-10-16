@@ -5,154 +5,172 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+
+@font-face {
+    font-family: Game;
+    src: url('../fonts/ARCADECLASSIC.TTF');
+}
+
+:root {
+    height: 100%;
+    width: 100%;
+}
+
 body {
-    background: linear-gradient(110deg, #fdcd3b 50%, #ffed4b 50%);
-    display: flex;
-    flex-direction: column;
+    background: url('https://66.media.tumblr.com/49528ca4af8ebf4bb76e47f6ed84ae4b/tumblr_mugu1zCf9v1rfjowdo1_500.gif') no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 2em;
 }
 
-
-/* Header content */
+/* hEADER */
 .header-container {
-    color: white;
-    background-color: black;
-    border: 4px solid black;
-    height: 100px;
-    padding: 8px;
-    font-size: 1.5rem;
-
-}
-
-.head-menu {
-    width: 80%;
-    margin: 26px auto;
+    grid-row: 1;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-
 }
 
-.links {
-    display: flex;
-    gap: 46px;
-
+.header-title {
+    font-size: 3.5rem;
+    font-family: Game, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blue;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-}
-
-a:hover {
-    color: orange;
-}
-
-/* End of Header Content */
 
 /* Game Content */
-
-.game-container {
-    height: 550px;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 36px;
-    gap: 10%;
-}
-
-.player-side,
-.cpu-side {
+.game-content {
+    grid-row: 2 / 5;
     display: flex;
     flex-direction: column;
+    gap: 2em;
+    color: blue;
+}
+
+.display-container {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    gap: 30px;
+    height: 100%;
 
 }
 
-.player-choice-pic,
-.cpu-choice-pic {
-    height: 200px;
-    width: 200px;
-    border: 2px solid black;
-
-}
-
-.game-results {
-    height: 300px;
-    width: 30%;
+.display {
+    width: 33rem;
+    height: 20rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-
 
 }
 
-.results-log {
-    font-size: 1.5rem;
-    margin-bottom: 35%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
+.results-message {
+    font-family: Game, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-.scoring {
-    display: flex;
-    justify-content: space-between;
-    gap: 26px;
+.final-winner {
+    font-family: Game, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.player-choice,
+.cpu-choice {
+    height: 12.5rem;
+    width: 12.5rem;
+    border: 8px solid black;
+    border-radius: 20px;
+    padding: 1em;
+    background-color: #cbd5e1;
 }
 
 .player-score,
 .cpu-score {
-    height: 50px;
+    font-size: 5rem;
+    font-family: Game, Georgia, 'Times New Roman', Times, serif;
+}
+
+.choices-container {
     display: flex;
+    justify-content: center;
+    gap: 4em;
+}
 
+.choices {
+    height: 12.5rem;
+    width: 12.5rem;
+    border: 8px solid black;
+    border-radius: 20px;
+    padding: 1em;
+    background-color: #cbd5e1;
 
 }
 
-.button-choice {
-    display: flex;
-    gap: 26px;
-}
-
-button {
-    background-color: black;
-    color: white;
-    border-radius: 6px;
-    border: 2px solid white;
-    text-align: center;
-    height: 50px;
-    width: 55px;
-
-}
-
-.reset-button {
-    font-size: 1.2rem;
-    width: 100px;
-}
-
-button:hover {
+.choices:hover {
     cursor: pointer;
-    background-color: rgba(117, 116, 116, 0.281);
-
+    background-color: rgba(80, 80, 80, 0.8);
+    animation: pulse 2s infinite;
 }
 
-/* End of game content */
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
 
-/* Footer content */
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
 
-.footer-container {
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
 
-    height: 75px;
+
+.button-container {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
-
-.footer-info {
-    color: black;
-    font-size: 1.5rem;
+.reset-button {
+    width: 8rem;
+    height: 3rem;
+    border: 4px solid black;
+    border-radius: 12px;
+    font-size: 2rem;
+    font-family: Game, Georgia, 'Times New Roman', Times, serif;
 }
 
-/* End of footer content */
+.reset-button:hover {
+    cursor: pointer;
+    background-color: rgba(80, 80, 80, 0.8);
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    grid-row: -1;
+    padding-top: 3em;
+    font-size: 2rem;
+    color: black;
+}
+
+.footer-container img {
+    height: 2rem;
+    transition: ease 0.5s all;
+}
+
+.footer-container img:hover {
+    filter: invert(95%) sepia(2%) saturate(1683%) hue-rotate(188deg) brightness(101%) contrast(88%);
+    rotate: 2turn;
+}

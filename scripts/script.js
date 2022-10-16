@@ -1,10 +1,10 @@
 // Create variables to change Player image
-const playerPic = document.querySelector(".player-choice-pic");
-const cpuPic = document.querySelector(".cpu-choice-pic");
+const playerPic = document.querySelector(".player-choice");
+const cpuPic = document.querySelector(".cpu-choice");
 
 // Create variables store different elements
-const btn = document.querySelectorAll(".choice");
-const results = document.querySelector(".result-message");
+const btn = document.querySelectorAll(".choices");
+const results = document.querySelector(".results-message");
 const player = document.querySelector(".player-score");
 const cpu = document.querySelector(".cpu-score");
 const winnerMessage = document.querySelector(".final-winner");
@@ -17,8 +17,8 @@ let playerChoice = "";
 
 
 // Set pictures to default
-playerPic.src = "./images/rock.jpg";
-cpuPic.src = "./images/random.svg";
+playerPic.src = "./images/katana.png";
+cpuPic.src = "./images/shuriken.png";
 
 
 // Get cpu's choice to compare with user
@@ -27,20 +27,20 @@ cpuPic.src = "./images/random.svg";
 function changeCpuChoice() {
 
     let cpuChoice = Math.floor(Math.random() * 3);
-    let choice = ["Rock", "Paper", "Scissors"];
+    let choice = ["Katana", "Shuriken", "Armor"];
 
-    if (choice[cpuChoice] == "Rock") {
-        cpuPic.src = "./images/rock.jpg";
-        return choice = "Rock";
+    if (choice[cpuChoice] == "Armor") {
+        cpuPic.src = "./images/armor.png";
+        return choice = "Armor";
     }
-    else if (choice[cpuChoice] == "Paper") {
-        cpuPic.src = "./images/paper.svg";
-        return choice = "Paper";
+    else if (choice[cpuChoice] == "Shuriken") {
+        cpuPic.src = "./images/shuriken.png";
+        return choice = "Shuriken";
 
     }
-    else if (choice[cpuChoice] == "Scissors") {
-        cpuPic.src = "./images/scissors.svg";
-        return choice = "Scissors";
+    else if (choice[cpuChoice] == "Katana") {
+        cpuPic.src = "./images/katana.png";
+        return choice = "Katana";
     }
 }
 
@@ -57,9 +57,7 @@ function resetButton() {
 
         // Enable buttons back 
         btn.forEach(elem => {
-            if (btn.textContent != "Reset") {
-                elem.disabled = false;
-            }
+                elem.addEventListener('click', addChoice);
         })
     })
 
@@ -69,7 +67,7 @@ function resetButton() {
 function disableButtons() {
     btn.forEach(elem => {
         if (btn.textContent != "Reset") {
-            elem.disabled = true
+            elem.removeEventListener('click', addChoice);
         }
     })
 }
@@ -91,41 +89,41 @@ function scoreKeep() {
 // Round of game will be simulated when user selects choice
 function playRound(playerSelection, computerSelection) {
     // If player chooses Rock
-    if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    if (playerSelection == "Armor" && computerSelection == "Katana") {
         playerScore += 1;
         player.textContent = playerScore;
-        results.textContent = "You Win! Rock beats Scissors!";
+        results.textContent = "You Win!\nArmor beats Katana!";
     }
-    else if (playerSelection == "Rock" && computerSelection == "Paper") {
+    else if (playerSelection == "Armor" && computerSelection == "Shuriken") {
         cpuScore += 1;
         cpu.textContent = cpuScore;
-        results.textContent = "You Lose! Paper beats Rock!";
+        results.textContent = "You Lose!\nShuriken beats Armor!";
     }
 
     // If Player chooses Paper
-    else if (playerSelection == "Paper" && computerSelection == "Rock") {
+    else if (playerSelection == "Shuriken" && computerSelection == "Armor") {
 
         playerScore += 1;
         player.textContent = playerScore;
-        results.textContent = "You Win! Paper beats Rock!";
+        results.textContent = "You Win!\nShuriken beats Armor!";
     }
-    else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+    else if (playerSelection == "Shuriken" && computerSelection == "Katana") {
         cpuScore += 1;
         cpu.textContent = cpuScore;
-        results.textContent = "You Lose! Scissors beats Paper!";
+        results.textContent = "You Lose!\nKatana beats Shuriken!";
     }
 
 
     // If player chooses Scissors
-    if (playerSelection == "Scissors" && computerSelection == "Paper") {
+    if (playerSelection == "Katana" && computerSelection == "Shuriken") {
         playerScore += 1;
         player.textContent = playerScore;
-        results.textContent = "You Win! Scissors beats Paper!";
+        results.textContent = "You Win!\nKatana beats Shuriken!";
     }
-    else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+    else if (playerSelection == "Katana" && computerSelection == "Armor") {
         cpuScore += 1;
         cpu.textContent = cpuScore;
-        results.textContent = "You Lose! Rock beats Scissors!";
+        results.textContent = "You Lose!\nArmor beats Katana!";
     }
 
     // If game is a tie
@@ -140,27 +138,29 @@ function playRound(playerSelection, computerSelection) {
 
 // btn will change player image on click
 btn.forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', addChoice)
 
+})
 
-        if (button.textContent == "Rock") {
-            playerPic.src = "./images/rock.jpg"
-            playerChoice = "Rock";
+function addChoice() {
+
+        if (this == btn[0]) {
+            playerPic.src = "./images/armor.png"
+            playerChoice = "Armor";
             return playRound(playerChoice, changeCpuChoice());
         }
-        else if (button.textContent == "Paper") {
-            playerPic.src = "./images/paper.svg";
-            playerChoice = "Paper";
+        else if (this == btn[1]) {
+            playerPic.src = "./images/shuriken.png";
+            playerChoice = "Shuriken";
             return playRound(playerChoice, changeCpuChoice());
         }
-        else if (button.textContent == "Scissors") {
-            playerPic.src = "./images/scissors.svg";
-            playerChoice = "Scissors";
+        else if (this == btn[2]) {
+            playerPic.src = "./images/katana.png";
+            playerChoice = "Katana";
             return playRound(playerChoice, changeCpuChoice());
         };
 
-    });
+    };
 
-})
 
 resetButton();

@@ -4,72 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
+    <title>The Last Samurai</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="./scripts/script.js" defer></script>
 </head>
 
 <body>
     <header class="header-container">
-        <div class="head-menu">
-            <div class="game-title"> Rock, Paper, Scissors</div>
-            <div class="links">
-                <a href="https://www.linkedin.com/in/justhairston11/">My Linkedin</a>
-                <a href="https://github.com/Jhairs2">My Github</a>
-                <a href="mailto:jhairst2@vols.utk.edu">Email me</a>
-            </div>
-        </div>
+        <span class="header-title">The Last Samurai</span>
     </header>
 
-    <div class="game-container">
-        <div class="player-side">
-            <h2>Player</h2>
-            <img class="player-choice-pic" src="./images/rock.svg">
-            <div class="button-choice">
-                <button class="choice">Rock</button>
-                <button class="choice">Paper</button>
-                <button class="choice">Scissors</button>
+    <div class="game-content">
+        <div class="display-container">
+            <img src="" class="player-choice">
+            <p class="player-score">0</p>
+            <div class="display">
+                <p class="results-message">Choose your Weapon</p>
+                <p class="final-winner"></p>
             </div>
-            <div><button class="reset-button">Reset</button></div>
+            <p class="cpu-score">0</p>
+            <img src="" class="cpu-choice">
         </div>
-        <div class="game-results">
-            <div class="results-title">
-                <h2>Game Log</h2>
-            </div>
-            <div class="results-log">
-                <div class="scoring">
-                    <div>
-                        <p class="player-score">0</p>
-                    </div>
-                    <div>
-                        <p>-</p>
-                    </div>
-                    <div>
-                        <p>Game Score</p>
-                    </div>
-                    <div>
-                        <p>-</p>
-                    </div>
-                    <div>
-                        <p class="cpu-score">0</p>
-                    </div>
-                </div>
-                <div class="final-winner">
-                    <p></p>
-                </div>
-                <p class="result-message"></p>
-            </div>
+        <div class="button-container">
+            <button class="reset-button">Reset</button>
         </div>
-        <div class="cpu-side">
-            <h2>Cpu</h2>
-            <img class="cpu-choice-pic">
+        <div class="choices-container">
+            <img src="./images/armor.png" alt="" class="choices">
+            <img src="./images/shuriken.png" alt="" class="choices">
+            <img src="./images/katana.png" alt="" class="choices">
         </div>
-    </div>
-    <footer class="footer-container">
-        <div class="footer-info">
-            <p>Copyright © 2022 Justin Hairston</p>
-        </div>
-    </footer>
+
+        <footer class="footer-container">
+            <p class="footer-info">Justin Hairston</p>
+            <a href="https://www.linkedin.com/in/justhairston11/"><img src="./images/linkedin.svg" alt=""></a>
+            <a href="https://github.com/Jhairs2"><img src="./images/github(1).svg" alt=""></a>
+            <a href="mailto:jhairst2@vols.utk.edu"><img src="./images/at.svg" alt=""></a>
+        </footer>
 
 </body>
 
