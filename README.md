@@ -1,6 +1,6 @@
 # Rock-Paper-Scissors
 
-Created my own version of tic tac toe! Following the Odin Project!
+Created my own version of Rock, Paper, Scissors! Following the Odin Project!
 
 live demo <a href="https://jhairs2.github.io/Rock-Paper-Scissors/">here</a>
 
