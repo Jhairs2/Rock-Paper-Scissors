@@ -9,11 +9,32 @@ const player = document.querySelector(".player-score");
 const cpu = document.querySelector(".cpu-score");
 const winnerMessage = document.querySelector(".final-winner");
 const resetBtn = document.querySelector(".reset-button");
+const music = document.querySelector(".audio");
+const mute = document.querySelector(".mute");
+const musicIcon = document.querySelector('#music-icon');
+const swordSound = document.createElement("audio");
+
+// sound effect
+swordSound.src = "./sounds/my-sword-hit-1wav-89026.mp3";
 
 // Variables for scoring and player choices
 let playerScore = 0;
 let cpuScore = 0;
 let playerChoice = "";
+
+
+// control music
+music.volume = 0.3;
+mute.addEventListener('click', ()=> {
+    if((music.muted)) {
+        musicIcon.src = "./images/music.svg";
+        music.muted = false;   
+    } 
+    else {
+        musicIcon.src = "./images/music-off.svg";
+        music.muted = true;   
+    };
+})
 
 
 // Set pictures to default
@@ -131,6 +152,7 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = "You Tied"
     }
 
+    swordSound.play();
     scoreKeep();
 
 }
